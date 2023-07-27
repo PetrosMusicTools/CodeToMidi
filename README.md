@@ -20,16 +20,32 @@ Code to MIDI Creator is an innovative application that turns Python code into MI
 5. Click the "Create MIDI" button. You will be prompted to enter a filename and choose a directory where the file will be saved.
 6. The program will convert your code into a MIDI file and save it in the chosen directory. A success message will confirm that your MIDI file has been created successfully.
 
-## Example
 
-Here's a simple example of how you might use this application:
+## MIDI Code Explanation
 
-[(60, 0.25), (62, 0.25), (64, 0.5), (62, 0.5), (60, 0.5), (60, 0.5)]
+In this application, we're representing MIDI (Musical Instrument Digital Interface) notes as a tuple containing three elements. This tuple represents a single note event in the MIDI sequence.
 
-scss
-Copy code
+- The first element in the tuple, Pitch, is a MIDI note number. The MIDI protocol specifies that note numbers 0-127 correspond to pitches, where 60 represents Middle C on a standard piano. The note numbers ascend chromatically, so 61 is a C#, 62 is a D, and so on.
 
-This will create a MIDI file with the notes middle C (60) and D (62) played for a quarter beat, E (64) played for half a beat, D (62) played for half a beat, and finally middle C (60) played for a full beat.
+- The second element in the tuple, Velocity, represents the volume at which the note is played. This is also on a scale from 0 to 127, where 0 represents silence and 127 represents the loudest possible note. This allows for dynamic expression in the music.
+
+- The third element in the tuple, Duration, represents how long the note is held, measured in beats. A duration of 1.0 is one beat, 0.5 is a half beat, 2.0 is two beats, and so on.
+
+So, a tuple like `(60, 100, 1.0)` would correspond to the note Middle C, played fairly loud (as the velocity is 100), for the duration of one beat.
+
+Here's how a simple C Major scale would be represented:
+
+```python
+midi_data = [
+    (60, 100, 1.0),  # C
+    (62, 100, 1.0),  # D
+    (64, 100, 1.0),  # E
+    (65, 100, 1.0),  # F
+    (67, 100, 1.0),  # G
+    (69, 100, 1.0),  # A
+    (71, 100, 1.0),  # B
+    (72, 100, 2.0),  # C
+]
 
 ## License
 
