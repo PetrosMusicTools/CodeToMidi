@@ -52,3 +52,4 @@ Here's how a simple C Major scale would be represented:
 ## License
 
 This project is licensed under the terms of the MIT License.
+
