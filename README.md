@@ -36,7 +36,8 @@ So, a tuple like `(60, 100, 1.0)` would correspond to the note Middle C, played 
 Here's how a simple C Major scale would be represented:
 
 ```python
- [
+  midi data =
+[
     (60, 100, 1.0),  # C
     (62, 100, 1.0),  # D
     (64, 100, 1.0),  # E
