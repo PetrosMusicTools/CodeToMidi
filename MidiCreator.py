@@ -5,8 +5,7 @@ from mido import MidiFile, MidiTrack, Message, MetaMessage
 import os
 
 # Define MIDI instruments
-instruments = {
-    "Acoustic Grand Piano": 0,
+instruments = { "Acoustic Grand Piano": 0,
     "Bright Acoustic Piano": 1,
     "Electric Grand Piano": 2,
     "Honky-tonk Piano": 3,
@@ -135,9 +134,7 @@ instruments = {
     "Applause": 126,
     "Gunshot": 127,
 
-
-    # Your instruments here
-    # ...
+    # Your instrument mapping...
 }
 
 def create_midi():
@@ -155,9 +152,9 @@ def create_midi():
     user_tempo = float(tempo_entry.get())
     track.append(MetaMessage('set_tempo', tempo=int(60000000 / user_tempo)))
 
-    for note, duration in melody:
-        track.append(Message('note_on', note=note, velocity=64, time=0))
-        track.append(Message('note_off', note=note, velocity=64, time=int(duration * 480)))
+    for note, velocity, duration in melody:
+        track.append(Message('note_on', note=note, velocity=velocity, time=0))
+        track.append(Message('note_off', note=note, velocity=velocity, time=int(duration * 480)))
 
     filename = filename_entry.get()
     if filename == "":
